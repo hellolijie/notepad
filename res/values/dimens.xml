@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="shadow_width">3dp</dimen>
+    <dimen name="slidingmenu_offset">50dp</dimen>
+    
+    <dimen name="button_height">45dp</dimen>
+</resources>

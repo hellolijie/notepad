@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical" 
+    	android:id="@+id/drawStageContatiner">
+    	
+	    <cn.lijie.youtu.myview.MySurface
+	        android:id="@+id/mySurface"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent"/>
+	    
+	    <LinearLayout 
+	        android:id="@+id/headMenu"
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:background="#000000">
+	        
+	        <Spinner 
+	            android:id="@+id/lines"
+	            style="@style/menuStyle"/>
+	        
+	        <Spinner 
+	            android:id="@+id/solids"
+	            style="@style/menuStyle"/>
+	        
+	        <TextView 
+		  	    android:id="@+id/text"
+		    	android:text="文字"
+		    	style="@style/menuStyle"/>
+	        
+	        <TextView 
+		  	    android:id="@+id/rubber"
+		    	android:text="橡皮"
+		    	style="@style/menuStyle"/>
+			<TextView 
+		  	    android:id="@+id/clear"
+		    	android:text="清空"
+		    	style="@style/menuStyle"/>
+			<!--  
+			<TextView
+		  	    android:id="@+id/select"
+		    	android:text="选择"
+		    	style="@style/menuStyle"/>
+		    	-->
+	    </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
