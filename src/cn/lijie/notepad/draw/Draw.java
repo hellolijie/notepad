@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
@@ -19,12 +20,17 @@ public abstract class Draw {
 		paint.setTextSize(textSize);
 	}
 	
+	public void setColor(int color){
+		paint.setColor(color);
+	}
+
 	protected void measurePress(MotionEvent event){
 		float presure=event.getPressure();
-		if(presure-0.4>0){
+		Log.i("tag", presure+"");
+		if(presure-1.4>0){
 			presure=(float) ((presure-0.4)*100);
 		}
-		presure=0;
+//		presure=0;
 		paint.setStrokeWidth(lineWidth+presure);
 	}
 	

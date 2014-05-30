@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical" 
+    	android:id="@+id/drawStageContatiner">
+    	
+	    <cn.lijie.notepad.draw.MySurface
+	        android:id="@+id/mySurface"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent"/>
+	    
+	    <LinearLayout 
+	        android:id="@+id/headMenu"
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:background="@color/thinGray">
+	        
+	        <Spinner 
+	            android:id="@+id/lines"
+	            style="@style/menuStyle"/>
+	        
+	        <Spinner 
+	            android:id="@+id/solids"
+	            style="@style/menuStyle"/>
+	        
+	        <TextView 
+		  	    android:id="@+id/text"
+		    	android:text="文字"
+		    	style="@style/menuStyle"/>
+	        
+	        <TextView 
+		  	    android:id="@+id/rubber"
+		    	android:text="橡皮"
+		    	style="@style/menuStyle"/>
+			<TextView 
+		  	    android:id="@+id/clear"
+		    	android:text="清空"
+		    	style="@style/menuStyle"/>
+			<ImageView 
+		  	    android:id="@+id/color"
+		    	android:layout_width="20dp"
+		    	android:layout_height="20dp"
+		    	android:background="@color/black"
+		    	android:layout_gravity="center_vertical"
+		    	android:layout_marginLeft="10dp"/>
+			<!--  
+			<TextView
+		  	    android:id="@+id/select"
+		    	android:text="选择"
+		    	style="@style/menuStyle"/>
+		    	-->
+	    </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

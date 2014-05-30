@@ -4,6 +4,17 @@ import android.app.Application;
 import android.content.res.Configuration;
 
 public class MApplication extends  Application{
+	//文件夹名称
+	public static String FOLD_ROOTFOLDNAME="fnotepad";
+	public static String FOLD_AUDIOFOLDNAME="audio";
+	public static String FOLD_TEXTFOLDNAME="text";
+	public static String FOLD_DRAWFOLDNAME="draw";
+	
+	//便签类型
+	public static int TYPE_TEXT=0;
+	public static int TYPE_DRAW=1;
+	public static int TYPE_AUDIO=2;
+//	public static String CONFIGNAME="config.xml";
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {

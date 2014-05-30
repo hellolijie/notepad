@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!--  
     <item android:id="@+id/importFrom" android:title="导入" android:showAsAction="always|withText"/>
     <item android:id="@+id/takeNow" android:title="现拍" android:showAsAction="always|withText"/>
+    -->
     <item android:id="@+id/save" android:title="保存" android:showAsAction="always|withText"/>
     <item android:id="@+id/share" android:title="分享" android:showAsAction="always|withText"/>
 </menu>

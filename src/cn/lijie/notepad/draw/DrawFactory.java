@@ -66,6 +66,12 @@ public class DrawFactory {
 	public void upDraw(MotionEvent event){
 		curDraw.upDraw(event, bufferedCanvas, copyBitmap);
 	}
+	
+	//…Ë÷√—’…´
+	public void setColor(int color){
+		curDraw.setColor(color);
+	}
+	
 	public Activity getContext() {
 		return context;
 	}
