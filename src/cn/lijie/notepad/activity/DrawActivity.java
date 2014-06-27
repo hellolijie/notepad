@@ -10,10 +10,14 @@ import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import cn.lijie.notepad.MApplication;
 import cn.lijie.notepad.R;
+import cn.lijie.notepad.data.DBhelper;
+import cn.lijie.notepad.data.DrawNoteHelper;
 import cn.lijie.notepad.draw.ColorPickerDialog;
 import cn.lijie.notepad.draw.ColorPickerDialog.OnColorChangedListener;
 import cn.lijie.notepad.draw.DrawBrokenLine;
@@ -24,8 +28,11 @@ import cn.lijie.notepad.draw.DrawRubber;
 import cn.lijie.notepad.draw.DrawScrew;
 import cn.lijie.notepad.draw.DrawStraightLine;
 import cn.lijie.notepad.draw.DrawText;
+import cn.lijie.notepad.utils.GeneralUtils;
 
 import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 public class DrawActivity extends BaseActivity{
 	private String[] lines={"涂鸦","直线","折线"};
@@ -43,6 +50,8 @@ public class DrawActivity extends BaseActivity{
 	private MenuItemListener clickListener;
 	private ItemSelectListener selectListener;
 	private TouchListener touchListener;
+	
+	private EditText title;
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
@@ -55,6 +64,30 @@ public class DrawActivity extends BaseActivity{
         
         init();
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getSupportMenuInflater().inflate(R.menu.text_new_menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.save:
+			String strTitle=title.getText().toString();
+			if(strTitle==null||strTitle.equals("")){
+				strTitle=GeneralUtils.formatTime("yyyy-MM-dd HH:mm:ss",System.currentTimeMillis());
+			}
+			DrawNoteHelper.getInstance().saveDrawNote(new DBhelper(getApplication()).getWritableDatabase(), 
+					DrawFactory.getInstance(this).getBufferedBitmap(), strTitle, (MApplication)getApplication());
+			((MApplication)getApplication()).rushData=2;
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 	
 	private void init(){
 		ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lines);
@@ -88,6 +121,9 @@ public class DrawActivity extends BaseActivity{
         tools.add(solidSpinner);
         tools.add(text);
         tools.add(rubber);
+        
+        title=(EditText) findViewById(R.id.title);
+        title.setText(GeneralUtils.formatTime("yyyy-MM-dd HH:mm:ss",System.currentTimeMillis()));
 	}
 	
 	
@@ -199,27 +235,4 @@ public class DrawActivity extends BaseActivity{
 			}
 		}
     }
-	@Override
-	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
-		//导入菜单
-		getSupportMenuInflater().inflate(R.menu.actionmenu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem item) {
-		switch(item.getItemId()){
-//		case R.id.importFrom:
-//			break;
-		case R.id.save:
-			break;
-		case R.id.share:
-			break;
-//		case R.id.takeNow:
-//			break;
-		case android.R.id.home:
-			break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

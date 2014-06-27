@@ -2,6 +2,7 @@ package cn.lijie.notepad;
 
 import android.app.Application;
 import android.content.res.Configuration;
+import cn.lijie.notepad.data.PadInfo;
 
 public class MApplication extends  Application{
 	//文件夹名称
@@ -16,6 +17,11 @@ public class MApplication extends  Application{
 	public static int TYPE_AUDIO=2;
 //	public static String CONFIGNAME="config.xml";
 
+	//当前便签薄
+	public PadInfo curPadInfo;
+	
+	public int rushData=-1;	//-1：不刷新 
+	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -23,6 +29,7 @@ public class MApplication extends  Application{
 
 	@Override
 	public void onCreate() {
+		
 		super.onCreate();
 	}
 

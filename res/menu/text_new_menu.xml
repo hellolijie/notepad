@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item 
+        android:id="@+id/save"
+        android:title="保存"
+        android:icon="@drawable/confirm"
+        android:showAsAction="always"/>
+	<item 
+	    android:id="@+id/addToNotifcation"
+	    android:title="添加到通知"
+	    android:icon="@drawable/add_to_notification"
+	    android:showAsAction="always"/>
+</menu>

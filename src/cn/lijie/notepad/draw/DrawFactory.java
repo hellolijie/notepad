@@ -83,5 +83,9 @@ public class DrawFactory {
 	public SurfaceHolder getHolder() {
 		return holder;
 	}
+
+	public Bitmap getBufferedBitmap() {
+		return bufferedBitmap;
+	}
 	
 }

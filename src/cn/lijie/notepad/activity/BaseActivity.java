@@ -23,6 +23,4 @@ public class BaseActivity extends SherlockActivity{
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	
 }

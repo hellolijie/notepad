@@ -3,6 +3,7 @@ package cn.lijie.notepad.audio;
 import java.io.IOException;
 
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.util.Log;
 
 public class AudioPlayer {
@@ -15,8 +16,9 @@ public class AudioPlayer {
 		return instance;
 	}
 	
-	private void startPlaying(String mFileName) {
+	public void startPlaying(String mFileName,OnCompletionListener onCompletionListener) {
         mPlayer = new MediaPlayer();
+        mPlayer.setOnCompletionListener(onCompletionListener);
         try {
             mPlayer.setDataSource(mFileName);
             mPlayer.prepare();
@@ -26,7 +28,7 @@ public class AudioPlayer {
         }
     }
 	 
-	private void stopPlaying() {
+	public void stopPlaying() {
 		if(mPlayer!=null){
 	        mPlayer.release();
 	        mPlayer = null;

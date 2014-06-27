@@ -4,9 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="@color/white">
+	<EditText 
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="2014-06-09"
+        android:textColor="@color/lightGray"
+        android:paddingLeft="@dimen/padding"
+        android:background="@null"/>
+    <include layout="@layout/horizontal_line"/>
     <RelativeLayout
 	    android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
+    	android:layout_height="match_parent"
     	android:orientation="vertical" 
     	android:id="@+id/drawStageContatiner">
     	
@@ -18,9 +27,11 @@
 	    <LinearLayout 
 	        android:id="@+id/headMenu"
 	        android:layout_width="fill_parent" 
-	        android:layout_height="wrap_content"
+	        android:layout_height="@dimen/button_height"
 	        android:orientation="horizontal"
-	        android:background="@color/thinGray">
+	        android:background="@color/thinGray"
+	        android:layout_alignParentBottom="true"
+	        android:gravity="center_vertical">
 	        
 	        <Spinner 
 	            android:id="@+id/lines"
